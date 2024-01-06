@@ -11,11 +11,13 @@
     "lib",
     "src"
   ],
+  "private": false,
   "devDependencies": {
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "node-sass": "^9.0.0",
     "nodemon": "^3.0.2",
+    "pinst": "^3.0.0",
     "postcss-lit": "^1.1.1",
     "prettier": "^3.1.1",
     "stylelint": "^16.1.0",
@@ -30,7 +32,10 @@
     "lint:fix": "yarn lint --fix",
     "build": "node src/scripts/build.js",
     "dev": "nodemon --watch src --exec yarn build -e scss",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "husky": {
     "hooks": {
